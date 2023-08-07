@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 // const NavContext = createContext();
 
@@ -45,6 +45,7 @@ import { createContext, useState } from "react";
 const SizeContext = createContext();
 
 const Context = ({ children }) => {
+  const [name, setName] = useState("Usama Bhakrani");
   const value = {
     person: {
       name: "Usama",
@@ -52,13 +53,21 @@ const Context = ({ children }) => {
     },
   };
 
-  const console = (value) => { 
-      alert(value)
-  }
+  const console = (value) => {
+    alert(value);
+  };
 
   return (
-    <SizeContext.Provider value={{ value,console }}>{children}</SizeContext.Provider>
+    <SizeContext.Provider value={{ value, console, name, setName }}>
+      {children}
+    </SizeContext.Provider>
   );
 };
 
-export { Context, SizeContext };
+// Custom Hook
+
+const customHook = () => {
+  return useContext(SizeContext);
+};
+
+export { Context, customHook };

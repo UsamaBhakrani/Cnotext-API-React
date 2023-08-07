@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { SizeContext } from "./Context";
+import { customHook } from "./Context";
 
 // const App = () => {
 //   const { aluga, setColor } = useContext(NavContext);
@@ -29,9 +28,18 @@ import { SizeContext } from "./Context";
 // };
 
 const App = () => {
-  const { value, console } = useContext(SizeContext);
+  const { value, console, name, setName } = customHook();
 
-  return <h2 onClick={() => console(value.person.age)}>Hello</h2>;
+  return (
+    <h2
+      onClick={() => {
+        setName("Yallah");
+        console(name);
+      }}
+    >
+      Hello
+    </h2>
+  );
 };
 
 export default App;
