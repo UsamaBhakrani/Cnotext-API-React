@@ -21,23 +21,44 @@ import { createContext, useState } from "react";
 // export { Context };
 // export default NavContext;
 
-const ColorContext = createContext();
+// const ColorContext = createContext();
+
+// const Context = ({ children }) => {
+//   const [color, setColor] = useState("Blue");
+//   const [user, setUser] = useState({
+//     name: {
+//       firstName: "Usama",
+//       lastName: "Aslam",
+//     },
+//   });
+
+//   return (
+//     <ColorContext.Provider value={{ color, setColor, user }}>
+//       {children}
+//     </ColorContext.Provider>
+//   );
+// };
+
+// export default ColorContext;
+// export { Context };
+
+const SizeContext = createContext();
 
 const Context = ({ children }) => {
-  const [color, setColor] = useState("Blue");
-  const [user, setUser] = useState({
-    name: {
-      firstName: "Usama",
-      lastName: "Aslam",
+  const value = {
+    person: {
+      name: "Usama",
+      age: 28,
     },
-  });
+  };
+
+  const console = (value) => { 
+      alert(value)
+  }
 
   return (
-    <ColorContext.Provider value={{ color, setColor, user }}>
-      {children}
-    </ColorContext.Provider>
+    <SizeContext.Provider value={{ value,console }}>{children}</SizeContext.Provider>
   );
 };
 
-export default ColorContext;
-export { Context };
+export { Context, SizeContext };

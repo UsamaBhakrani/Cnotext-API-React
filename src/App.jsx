@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ColorContext from "./Context";
+import { SizeContext } from "./Context";
 
 // const App = () => {
 //   const { aluga, setColor } = useContext(NavContext);
@@ -14,19 +14,24 @@ import ColorContext from "./Context";
 
 // export default App;
 
+// const App = () => {
+//   const { color, setColor, user } = useContext(ColorContext);
+
+//   const newColor = "Black";
+
+//   return (
+//     <>
+//       <button onClick={() => setColor(newColor)}>{color}</button>
+//       <button>{user.name.firstName}</button>
+//       <button>{user.name.lastName}</button>
+//     </>
+//   );
+// };
+
 const App = () => {
-  const { color, setColor, user } = useContext(ColorContext);
+  const { value, console } = useContext(SizeContext);
 
-  const newColor = "Black";
-
-
-  return (
-    <>
-      <button onClick={() => setColor(newColor)}>{color}</button>
-      <button>{user.name.firstName}</button>
-      <button>{user.name.lastName}</button>
-    </>
-  );
+  return <h2 onClick={() => console(value.person.age)}>Hello</h2>;
 };
 
 export default App;
